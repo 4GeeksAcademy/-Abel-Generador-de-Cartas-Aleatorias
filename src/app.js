@@ -32,6 +32,7 @@ window.onload = function () {
 	//write your code here
 	GenerateRandomCard();
 	document.querySelector("#createNewCard").addEventListener("click", GenerateRandomCard);
+	setInterval(GenerateRandomCard, 10000);
 };
 
 
