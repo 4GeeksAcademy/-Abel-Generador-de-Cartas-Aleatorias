@@ -9,14 +9,14 @@ function randomNumberOfArray(array) {
 	return Math.floor(Math.random() * array.length)
 }
 
-const GenerateRandomCard = (e) => {
+const GenerateRandomCard = () => {
 	let suits = ["♠", "♥", "♣", "♦"];
 	let ranks = ["A", 2, 3, 4, 5, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
 	let rank = randomNumberOfArray(ranks);
 	let suit = randomNumberOfArray(suits);
 	let color = (suit % 2 === 0) ? "black" : "red";
 	let newCard = `
-			<div class="card" style="width: 18rem;">
+			<div class="card">
 				<div class="card-body">
 				<header style='color: ${color};'>${suits[suit]}</header>
 				<div class="content"><span class="rank">${ranks[rank]}</span></div>
@@ -27,12 +27,27 @@ const GenerateRandomCard = (e) => {
 	document.querySelector("#cards").innerHTML += newCard;
 }
 
+const resizingCards = () => {
+	const widthCard = document.querySelector("#widthCard").value;
+	const heightCard = document.querySelector("#heightCard").value;
+	const cards = document.querySelectorAll(".card");
+	console.log(widthCard, heightCard, cards);
+	cards.forEach(card => {
+		card.style.width = widthCard + "px";
+		card.style.height = heightCard + "px";
+	});
+}
+
+
 
 window.onload = function () {
 	//write your code here
 	GenerateRandomCard();
 	document.querySelector("#createNewCard").addEventListener("click", GenerateRandomCard);
-	setInterval(GenerateRandomCard, 10000);
+	// setInterval(GenerateRandomCard, 10000);
+	document.querySelectorAll("#widthCard, #heightCard").forEach(input => {
+		input.addEventListener("input", resizingCards);
+	});
 };
 
 

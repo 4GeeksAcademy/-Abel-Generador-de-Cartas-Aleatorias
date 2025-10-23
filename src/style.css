@@ -18,17 +18,19 @@ body{
     justify-content: center;
 }
 header, footer {
-  font-size: 2rem;
+    position: absolute;
+    font-size: 2rem;
 }
 
 .card {
-  max-width: 200px;
-  aspect-ratio: 1 / 1.4;
-  background-color: white;
-  border: 2px solid #000;
-  border-radius: 8px;
-  flex-shrink: 1; 
-  padding: 1rem;
+    position: relative;
+    width: 200px;
+    aspect-ratio: 1 / 1.4;
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 8px;
+    flex-shrink: 1; 
+    padding: 1rem;
 }
 
 .card-body {
@@ -48,6 +50,6 @@ header, footer {
 footer {
     transform: scale(-1, -1);
 }
-span {
-    color: "black" !important;
+.rank {
+    font-size: 1em;
 }
